@@ -6,7 +6,7 @@
 import os
 import pygame
 from settings import window, fps
-from state_machine import StateMachine
+from state_machine.state_machine import StateMachine
 
 # always center the window
 os.environ['SDL_VIDEO_CENTERED'] = '1'

@@ -4,19 +4,13 @@
     to handle the game loop actions based on the state of the application.
     Since state is static, any script can alter it.
 """
-
-from enum import Enum, unique, auto
-
-@unique
-class State(Enum):
-    MAINMENU = auto()
-    PONG = auto()
-
+from states.main_menu import MainMenu
 
 class StateMachine:
     
-    state = State.PONG
-    
+    # init objects of all states
+    currentState = MainMenu
+
     def __init__(self) -> None:
         pass
 
