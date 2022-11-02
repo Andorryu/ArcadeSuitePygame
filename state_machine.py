@@ -5,9 +5,17 @@
     Since state is static, any script can alter it.
 """
 
+from enum import StrEnum, unique, auto
+
+@unique
+class State(StrEnum):
+    MAINMENU = auto()
+    PONG = auto()
+
+
 class StateMachine:
     
-    state = "MainMenu"
+    state = State.PONG
     
     def __init__(self) -> None:
         pass
