@@ -8,7 +8,7 @@ import os
 import pygame
 from settings import *
 
-# always center the window
+# always center the game window
 os.environ['SDL_VIDEO_CENTERED'] = '1'
 
 
@@ -19,10 +19,6 @@ class App:
         self.clock = pygame.time.Clock()
 
     def process_input(self) -> None:
-        # uncomment for code that only checks for the most recent event
-        # (pygame.event.get() is better)
-        #event = pygame.event.poll()
-
         # close program when user clicks x
         events = pygame.event.get()
         for event in events:
@@ -34,10 +30,10 @@ class App:
         current_state.process_input()
 
     def update(self) -> None:
-        current_state.process_input()
+        current_state.update()
 
     def render(self) -> None:
-        current_state.process_input()
+        current_state.render()
 
     def run(self) -> None:
         while self.running:
