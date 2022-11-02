@@ -5,10 +5,10 @@
     Since state is static, any script can alter it.
 """
 
-from enum import StrEnum, unique, auto
+from enum import Enum, unique, auto
 
 @unique
-class State(StrEnum):
+class State(Enum):
     MAINMENU = auto()
     PONG = auto()
 
