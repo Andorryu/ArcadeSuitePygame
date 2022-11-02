@@ -1,10 +1,12 @@
 """
     app.py
-    This file handles entry of the application.
+    This file handles entry of the application. It holds the game loop and sets the fps
 """
 
 import os
 import pygame
+
+from settings import window, fps
 
 # always center the window
 os.environ['SDL_VIDEO_CENTERED'] = '1'
@@ -37,7 +39,7 @@ class App:
             self.process_input()
             self.update()
             self.render()
-            self.clock.tick(60)
+            self.clock.tick(fps)
 
 app = App()
 app.run()
