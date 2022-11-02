@@ -1,22 +1,22 @@
 """
     app.py
-    This file handles entry of the application. It holds the game loop and sets the fps
+    This file handles entry of the application. It holds the game loop and applies the fps from settings.py.
+    Control is given to the settings object current_state.
 """
 
 import os
 import pygame
-from settings import window, fps
-from state_machine.state_machine import StateMachine
+from settings import *
 
 # always center the window
 os.environ['SDL_VIDEO_CENTERED'] = '1'
+
 
 class App:
     def __init__(self) -> None:
         pygame.init()
         self.running = True
         self.clock = pygame.time.Clock()
-        self.state_handler = StateMachine()
 
     def process_input(self) -> None:
         # uncomment for code that only checks for the most recent event
@@ -31,13 +31,13 @@ class App:
                 self.running = False
 
         # process input from respective application states
-        self.state_handler.process_input()
+        current_state.process_input()
 
     def update(self) -> None:
-        self.state_handler.update()
+        current_state.process_input()
 
     def render(self) -> None:
-        self.state_handler.render()
+        current_state.process_input()
 
     def run(self) -> None:
         while self.running:
