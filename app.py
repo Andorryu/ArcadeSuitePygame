@@ -6,7 +6,7 @@
 
 import os
 import pygame
-from state_machine.states.settings import current_state, fps
+from state_machine.states.settings import current_state, fps, window, window_caption, running
 
 # always center the game window
 os.environ['SDL_VIDEO_CENTERED'] = '1'
@@ -15,7 +15,7 @@ os.environ['SDL_VIDEO_CENTERED'] = '1'
 class App:
     def __init__(self) -> None:
         pygame.init()
-        self.running = True
+        pygame.display.set_caption(window_caption)
         self.clock = pygame.time.Clock()
 
     def process_input(self) -> None:
@@ -36,7 +36,7 @@ class App:
         current_state.render()
 
     def run(self) -> None:
-        while self.running:
+        while running:
             self.process_input()
             self.update()
             self.render()
