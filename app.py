@@ -1,7 +1,7 @@
 """
     app.py
     This file handles entry of the application. It holds the game loop and applies the fps from settings.py.
-    Control is given to the settings object current_state.
+    Control is given to current_state (from settings.py).
 """
 
 import os

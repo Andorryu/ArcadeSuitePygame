@@ -1,7 +1,7 @@
 """
     state.py
     The class State is an interface for every possible state. Possible states include (but are
-    not limited to) MainMenu, Pong, PacMan, Options
+    not limited to) MainMenu, Pong, PacMan, Options.
 """
 
 class State:

@@ -1,6 +1,6 @@
 """
     settings.py
-    This file stores application-wide settings such as fps, window, and current_state
+    This file stores application-wide settings such as fps, window, and current_state as static variables
 """
 import pygame
 from state_machine.states.main_menu import MainMenu
