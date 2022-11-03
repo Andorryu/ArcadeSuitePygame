@@ -17,6 +17,7 @@ class App:
     def __init__(self) -> None:
         pygame.init()
         pygame.display.set_caption(settings.window_caption)
+        pygame.display.set_icon(settings.icon)
         self.clock = pygame.time.Clock()
 
     def process_input(self) -> None:

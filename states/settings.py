@@ -11,6 +11,7 @@ from states.main_menu import MainMenu
 width = 1280
 height = 720
 window = pygame.display.set_mode((width, height))
+icon = pygame.image.load("./img/joystick_icon.png")
 fps = 60 # apply fps (done in app.py): self.clock.tick(fps)
 current_state = MainMenu() # change this whenever the state is changed
 window_caption = "Arcade Suite" # applied with: pygame.display.set_caption()
