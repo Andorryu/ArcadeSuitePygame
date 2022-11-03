@@ -4,7 +4,7 @@
     state is the application's entry state. MainMenu inherits from menu which inherits from state.
 """
 
-from .menu import Menu
+from states.menu import Menu
 
 class MainMenu(Menu):
     def __init__(self) -> None:

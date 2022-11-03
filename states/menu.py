@@ -3,7 +3,7 @@
     Menu is a state that handles menu related actions. Menu inherits from State.
 """
 
-from .state import State
+from states.state import State
 
 class Menu(State):
     def __init__(self) -> None:
