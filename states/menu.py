@@ -11,7 +11,7 @@ class Menu(State):
         super().__init__()
         pygame.init()
         # create default font and title
-        self.title_font = pygame.font.Font(None, 50) # 'None' uses the default pygame font: freesansbold
+        self.title_font = pygame.font.Font(None, 80) # 'None' uses the default pygame font: freesansbold
 
     def process_input(self) -> None:
         super().process_input()

@@ -8,7 +8,9 @@ from states.menu import Menu
 from states.main_menu import MainMenu
 
 # init app-wide settings
-window = pygame.display.set_mode((1280, 720))
+width = 1280
+height = 720
+window = pygame.display.set_mode((width, height))
 fps = 60 # apply fps (done in app.py): self.clock.tick(fps)
 current_state = MainMenu() # change this whenever the state is changed
 window_caption = "Arcade Suite" # applied with: pygame.display.set_caption()
