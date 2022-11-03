@@ -34,7 +34,9 @@ class App:
         settings.current_state.update()
 
     def render(self) -> None:
+        settings.window.fill((0, 0, 0))
         settings.current_state.render()
+        pygame.display.update()
 
     def run(self) -> None:
         while settings.running:
