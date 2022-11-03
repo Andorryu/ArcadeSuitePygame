@@ -9,6 +9,7 @@ import pygame
 import color
 
 class Button:
+    # IMPORTANT: NEED TO CHANGE SIZE PARAM TO PADDING SINCE BUTTON SIZE SHOULD FORM AROUND TEXT
     def __init__(self, pos: tuple[int, int], size: tuple[int, int], text: str, font_size: int, submit_handler,
             primary_color=color.WHITE, secondary_color=color.BLACK, active=True, selected=False
         ) -> None:
