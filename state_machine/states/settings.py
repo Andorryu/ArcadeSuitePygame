@@ -4,8 +4,8 @@
     and the settings menu state which allows control of some settings
 """
 import pygame
-from menu import Menu
-from main_menu import MainMenu
+from .menu import Menu
+from .main_menu import MainMenu
 
 # init app-wide settings
 window = pygame.display.set_mode((1280, 720))
