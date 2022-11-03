@@ -8,6 +8,7 @@ import os
 import pygame
 # when importing static values that other files may change, you cant use 'from' keyword
 import states.settings as settings
+import color
 
 # always center the game window
 os.environ['SDL_VIDEO_CENTERED'] = '1'
@@ -35,7 +36,7 @@ class App:
         settings.current_state.update()
 
     def render(self) -> None:
-        settings.window.fill((0, 0, 0))
+        settings.window.fill(color.BLACK)
         settings.current_state.render()
         pygame.display.update()
 
