@@ -21,11 +21,12 @@ class Button:
             when the button is not selected and the text color when the button is selected.
     """
     def __init__(self, text: str, pos: tuple[int, int], font_size: int, primary_color: tuple[int, int, int],
-        secondary_color: tuple[int, int, int], padding: tuple[int, int], active=True, selected=False, submitted=False):
+    secondary_color: tuple[int, int, int], padding: tuple[int, int], active=True, selected=False, submitted=False) -> None:
+
         # set up button in its initial state
         pass
 
     # button states are updated in UILayer since they depend on other buttons
 
-    def render(self):
+    def render(self) -> None:
         pass
