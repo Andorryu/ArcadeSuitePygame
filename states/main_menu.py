@@ -25,8 +25,13 @@ class MainMenu(Menu):
             )
         ])
 
+    def process_input(self) -> None:
+        super().process_input()
+        self.UI_layer.process_input()
+
     def update(self) -> None:
         super().update()
+        self.UI_layer.update()
 
     def render(self) -> None:
         super().render()
