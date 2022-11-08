@@ -18,3 +18,4 @@ class MainMenu(Menu):
 
     def render(self) -> None:
         super().render()
+        

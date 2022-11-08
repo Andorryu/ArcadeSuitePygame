@@ -38,7 +38,7 @@ class App:
     def render(self) -> None:
         settings.window.fill(color.BLACK)
         settings.current_state.render()
-        pygame.display.update()
+        pygame.display.flip()
 
     def run(self) -> None:
         while settings.running:

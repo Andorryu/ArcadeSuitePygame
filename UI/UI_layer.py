@@ -15,5 +15,3 @@ class InputType(Enum):
 class UILayer:
     def __init__(self) -> None:
         self.input_mode = InputType.KEYBOARD
-
-    
