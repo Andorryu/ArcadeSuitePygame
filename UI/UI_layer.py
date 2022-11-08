@@ -6,6 +6,7 @@
     through either mouse or keyboard input.
 """
 from enum import Enum, auto
+from UI.UI_element import UIElement
 
 # enum to distinguish between keyboard and mouse input
 class InputType(Enum):
@@ -18,5 +19,6 @@ class UILayer:
         self.UI_elements = UI_elements
     
     def render(self) -> None:
+        element: UIElement
         for element in self.UI_elements:
             element.render()

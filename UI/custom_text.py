@@ -4,6 +4,7 @@
 """
 
 import pygame
+import states.settings as settings
 from UI.UI_element import UIElement
 
 class CustomText:
@@ -12,5 +13,12 @@ class CustomText:
 
         pygame.font.init()
         self.font: pygame.font.Font = pygame.font.Font(font_family_path, font_size)
-        self.surf: pygame.Surface = self.font.render(text, color=color, antialias=True)
+        self.surf: pygame.Surface = self.font.render(text, True, color)
         self.rect: pygame.Rect = self.surf.get_rect(center=pos)
+        self.text = text
+        self.pos = pos
+        self.color = color
+    
+    def render(self) -> None:
+        self.surf = self.font.render(self.text, True, self.color)
+        settings.window.blit(self.surf, self.rect)

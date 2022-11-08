@@ -39,8 +39,9 @@ class Button(UIElement):
     # button states are updated in UILayer since they depend on the states of other buttons
 
     def render(self) -> None:
-        color = self.primary_color if self.selected else self.secondary_color
+        bg_color = self.primary_color if self.selected else self.secondary_color
+        text_color = self.secondary_color if self.selected else self.primary_color
         # first, draw background rect
-        self.area.fill(color, self.area_rect)
+        settings.window.fill(bg_color, self.area_rect)
         # then, draw text
-        settings.window.blit(self.text.surf)
+        self.text.render()
