@@ -16,7 +16,7 @@ class MainMenu(Menu):
         super().__init__()
         self.UI_layer = UILayer([
             Button(
-                "fuck me!!!!",
+                "This is a button",
                 (settings.width/2, settings.height/2),
                 color.BLACK,
                 color.WHITE,
