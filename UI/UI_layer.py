@@ -20,13 +20,17 @@ class UILayer:
         self.UI_elements = UI_elements
         # init mouse info
         # (isMouseButton1Pressed?, x pos, y pos)
-        self.mouse_info = (False, 0, 0)
+        self.mouse_pos = (0, 0)
+        self.mouse_down = False
     
     def process_input(self) -> None:
         events = pygame.event.get()
         for event in events:
-            if event == pygame.MOUSEBUTTONDOWN:
-                pass
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                self.mouse_down = True
+            if event.type == pygame.MOUSEBUTTONUP:
+                self.mouse_down = False
+        self.mouse_pos = pygame.mouse.get_pos()
 
 
 
