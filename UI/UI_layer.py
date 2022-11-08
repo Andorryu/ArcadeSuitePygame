@@ -13,5 +13,10 @@ class InputType(Enum):
     MOUSE = auto
 
 class UILayer:
-    def __init__(self) -> None:
+    def __init__(self, UI_elements: list) -> None:
         self.input_mode = InputType.KEYBOARD
+        self.UI_elements = UI_elements
+    
+    def render(self) -> None:
+        for element in self.UI_elements:
+            element.render()

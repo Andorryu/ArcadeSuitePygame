@@ -6,22 +6,23 @@
 import pygame
 import color
 from UI.custom_text import CustomText
+from UI.UI_element import UIElement
 import states.settings as settings
 
-class Button:
-    """
-        DESC:
-            Button consists of a rectangle background with text centered inside. The 
-            primary and secondary colors are swapped when the button is selected.
-        PARAMS:
-            * text - string of text centered in button.
-            * pos - double of ints, refers to the center of the button.
-            * font_size - size of the text in the button.
-            * primary_color - triple of ints (R, G, B), describes the text color when 
-            the button is not selected and the background color when the button is selected.
-            * secondary_color - triple of ints (R, G, B), describes the background color 
-            when the button is not selected and the text color when the button is selected.
-    """
+"""
+    DESC:
+        Button consists of a rectangle background with text centered inside. The 
+        primary and secondary colors are swapped when the button is selected.
+    PARAMS:
+        * text - string of text centered in button.
+        * pos - double of ints, refers to the center of the button.
+        * font_size - size of the text in the button.
+        * primary_color - triple of ints (R, G, B), describes the text color when 
+        the button is not selected and the background color when the button is selected.
+        * secondary_color - triple of ints (R, G, B), describes the background color 
+        when the button is not selected and the text color when the button is selected.
+"""
+class Button(UIElement):
     def __init__(self, text: str, pos: tuple[int, int], primary_color: tuple[int, int, int],
     secondary_color: tuple[int, int, int], font_size: int, padding: tuple[int, int], active=True, selected=False, submitted=False) -> None:
 

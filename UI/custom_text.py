@@ -4,6 +4,7 @@
 """
 
 import pygame
+from UI.UI_element import UIElement
 
 class CustomText:
     def __init__(self, text: str, pos:tuple[int, int], color: tuple[int, int, int], 
