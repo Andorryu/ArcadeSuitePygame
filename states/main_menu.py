@@ -12,14 +12,9 @@ from UI.button import Button
 class MainMenu(Menu):
     def __init__(self) -> None:
         super().__init__()
-        self.title = self.title_font.render("Arcade Suite!", True, color.WHITE)
-        self.title_rect = self.title.get_rect(center=(settings.width/2, settings.height/2 - 250))
-        self.button_collection = [
-        ]
 
     def update(self) -> None:
         super().update()
 
     def render(self) -> None:
         super().render()
-        settings.window.blit(self.title, self.title_rect)
