@@ -16,14 +16,14 @@ class MainMenu(Menu):
         super().__init__()
         self.UI_layer = UILayer([
             Button(
-                "Create a new button!",
+                "Settings",
                 (settings.width/2, settings.height/2),
                 color.BLACK,
                 color.WHITE,
                 24,
                 (50, 20),
                 # callback must not contain arguments, thus it must be a lambda
-                lambda: print("button submitted")
+                lambda: settings.change_state(Settings())
             )
         ])
 
