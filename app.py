@@ -7,12 +7,11 @@
 import os
 import pygame
 # when importing static values that other files may change, you cant use 'from' keyword
-import states.settings as settings
+import global_settings as settings
 import color
 
 # always center the game window
 os.environ['SDL_VIDEO_CENTERED'] = '1'
-
 
 class App:
     def __init__(self) -> None:
@@ -30,7 +29,8 @@ class App:
                 settings.running = False
 
         # process input from respective application states
-        settings.current_state.process_input()
+        # pass events so that the same queue is acted upon in every process_input call
+        settings.current_state.process_input(events)
 
     def update(self) -> None:
         settings.current_state.update()

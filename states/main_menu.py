@@ -5,29 +5,31 @@
 """
 
 from states.menu import Menu
-import states.settings as settings
+from states.settings import Settings
+import global_settings as settings
 import color
 from UI.UI_layer import UILayer
 from UI.button import Button
-from UI.custom_text import CustomText
 
 class MainMenu(Menu):
     def __init__(self) -> None:
         super().__init__()
         self.UI_layer = UILayer([
             Button(
-                "This is a button",
+                "Create a new button!",
                 (settings.width/2, settings.height/2),
                 color.BLACK,
                 color.WHITE,
                 24,
-                (50, 20)
+                (50, 20),
+                # callback must not contain arguments, thus it must be a lambda
+                lambda: print("button submitted")
             )
         ])
 
-    def process_input(self) -> None:
-        super().process_input()
-        self.UI_layer.process_input()
+    def process_input(self, events) -> None:
+        super().process_input(events)
+        self.UI_layer.process_input(events)
 
     def update(self) -> None:
         super().update()

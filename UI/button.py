@@ -3,11 +3,12 @@
     This class holds data related to button functionality and how they should be displayed
 """
 
+from collections.abc import Callable
 import pygame
 import color
 from UI.custom_text import CustomText
 from UI.UI_element import UIElement
-import states.settings as settings
+import global_settings as settings
 
 """
     DESC:
@@ -24,7 +25,8 @@ import states.settings as settings
 """
 class Button(UIElement):
     def __init__(self, text: str, pos: tuple[int, int], primary_color: tuple[int, int, int],
-    secondary_color: tuple[int, int, int], font_size: int, padding: tuple[int, int], active=True, selected=False, submitted=False) -> None:
+    secondary_color: tuple[int, int, int], font_size: int, padding: tuple[int, int], call_back: Callable[[None], None],
+    active=True, selected=False, submitted=False) -> None:
 
         # set up button in its initial state
         self.text = CustomText(text, pos, primary_color, font_size)
@@ -32,6 +34,7 @@ class Button(UIElement):
         self.area_rect = self.area.get_rect(center=pos)
         self.primary_color = primary_color
         self.secondary_color = secondary_color
+        self.call_back = call_back
         self.active = active
         self.selected = selected
         self.submitted = submitted
@@ -44,4 +47,4 @@ class Button(UIElement):
         # first, draw background rect
         settings.window.fill(bg_color, self.area_rect)
         # then, draw text
-        self.text.render()
+        self.text.render(text_color)

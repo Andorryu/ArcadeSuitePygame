@@ -4,7 +4,7 @@
 """
 
 import pygame
-import states.settings as settings
+import global_settings as settings
 from UI.UI_element import UIElement
 
 class CustomText:
@@ -19,6 +19,9 @@ class CustomText:
         self.pos = pos
         self.color = color
     
-    def render(self) -> None:
-        self.surf = self.font.render(self.text, True, self.color)
+    def render(self, color) -> None:
+        # only update color if it needs to be updated
+        if self.color != color:
+            self.surf = self.font.render(self.text, True, color)
+            self.color = color
         settings.window.blit(self.surf, self.rect)

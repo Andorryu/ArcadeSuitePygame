@@ -4,7 +4,7 @@
 """
 
 import pygame
-import states.settings as settings
+import global_settings as settings
 import color
 from states.state import State
 from UI.button import Button
@@ -13,8 +13,8 @@ class Menu(State):
     def __init__(self) -> None:
         super().__init__()
 
-    def process_input(self) -> None:
-        super().process_input()
+    def process_input(self, events) -> None:
+        super().process_input(events)
         
     def update(self) -> None:
         super().update()

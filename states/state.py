@@ -8,7 +8,7 @@ class State:
     def __init__(self) -> None:
         pass
     
-    def process_input(self) -> None:
+    def process_input(self, events) -> None:
         pass
 
     def update(self) -> None:
