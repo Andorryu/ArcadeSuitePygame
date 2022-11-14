@@ -19,7 +19,9 @@ class CustomText:
         self.pos = pos
         self.color = color
     
-    def render(self, color) -> None:
+    def render(self, color=None) -> None:
+        if color == None:
+            color = self.color
         # only update color if it needs to be updated
         if self.color != color:
             self.surf = self.font.render(self.text, True, color)

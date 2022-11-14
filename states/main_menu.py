@@ -10,20 +10,27 @@ import global_settings as settings
 import color
 from UI.UI_layer import UILayer
 from UI.button import Button
+from UI.custom_text import CustomText
 
 class MainMenu(Menu):
     def __init__(self) -> None:
         super().__init__()
         self.UI_layer = UILayer([
-            Button(
-                "Settings",
-                (settings.width/2, settings.height/2),
-                color.BLACK,
+            CustomText(
+                "Welcome!",
+                (settings.width/2, settings.height/2 - 30),
                 color.WHITE,
-                24,
-                (50, 20),
+                50
+            ),
+            Button(
+                text = "Settings",
+                pos = (settings.width/2, settings.height/2 + 10),
+                primary_color = color.BLACK,
+                secondary_color = color.WHITE,
+                font_size = 24,
+                padding = (50, 20),
                 # callback must not contain arguments, thus it must be a lambda
-                lambda: settings.change_state(Settings())
+                callback = lambda: settings.change_state(Settings())
             )
         ])
 
