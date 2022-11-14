@@ -9,6 +9,7 @@ import color
 from UI.custom_text import CustomText
 from UI.UI_element import UIElement
 import global_settings as settings
+from vector import Vector
 
 """
     DESC:
@@ -24,14 +25,14 @@ import global_settings as settings
         when the button is not selected and the text color when the button is selected.
 """
 class Button(UIElement):
-    def __init__(self, text: str, pos: tuple[int, int], primary_color: tuple[int, int, int],
+    def __init__(self, text: str, pos: Vector, primary_color: tuple[int, int, int],
     secondary_color: tuple[int, int, int], font_size: int, padding: tuple[int, int], callback: Callable[[None], None],
     active=True, selected=False, submitted=False) -> None:
 
         # set up button in its initial state
         self.text = CustomText(text, pos, primary_color, font_size)
         self.area = pygame.Surface((2*padding[0] + self.text.rect.width, 2*padding[1] + self.text.rect.height))
-        self.area_rect = self.area.get_rect(center=pos)
+        self.area_rect = self.area.get_rect(center=pos.get_tuple())
         self.primary_color = primary_color
         self.secondary_color = secondary_color
         self.call_back = callback

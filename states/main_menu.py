@@ -6,11 +6,12 @@
 
 from states.menu import Menu
 from states.settings import Settings
-import global_settings as settings
 import color
 from UI.UI_layer import UILayer
 from UI.button import Button
 from UI.custom_text import CustomText
+from vector import Vector
+import global_settings as settings
 
 class MainMenu(Menu):
     def __init__(self) -> None:
@@ -18,13 +19,13 @@ class MainMenu(Menu):
         self.UI_layer = UILayer([
             CustomText(
                 "Welcome!",
-                (settings.width/2, settings.height/2 - 30),
+                (settings.resolution // 2 - settings.ad(Vector(0, 20))),
                 color.WHITE,
                 50
             ),
             Button(
                 text = "Settings",
-                pos = (settings.width/2, settings.height/2 + 10),
+                pos = (settings.resolution // 2 + settings.ad(Vector(0, 20))),
                 primary_color = color.BLACK,
                 secondary_color = color.WHITE,
                 font_size = 24,
