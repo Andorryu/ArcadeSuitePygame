@@ -26,10 +26,10 @@ def ady(y_val: int) -> int:
     
 # init app-wide settings
 # SCALE: scale of 80 makes 1280 x 720, 120 makes 1920 x 1080, 150 makes 2400 x 1350
-scale = 150
-space = Vector((16 * scale, 9 * scale))
-resolution = Vector((1280, 720))
-window = pygame.display.set_mode(resolution.get_tuple())
+scale = 120
+space = Vector(16 * scale, 9 * scale)
+resolution = Vector(1280, 720)
+window = pygame.display.set_mode(resolution.as_tuple())
 icon = pygame.image.load("./img/joystick_icon.png")
 fps = 60 # apply fps (done in app.py): self.clock.tick(fps)
 window_caption = "Arcade Suite" # applied with: pygame.display.set_caption()

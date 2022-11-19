@@ -16,17 +16,17 @@ class Settings(Menu):
         self.UI_layer = UILayer([
             CustomText(
                 text = "Settings",
-                pos = (settings.space // 2 - Vector((0, 500))),
+                pos = (settings.space // 2 - Vector(0, 500)),
                 color = color.WHITE,
                 font_size = 140
             ),
             Button(
                 text = "Back",
-                pos = (Vector((200, 180))),
+                pos = (Vector(200, 180)),
                 primary_color = color.BLACK,
                 secondary_color = color.WHITE,
                 font_size = 60,
-                padding = Vector((40, 40)),
+                padding = Vector(40, 40),
                 callback = lambda: None
             )
         ])

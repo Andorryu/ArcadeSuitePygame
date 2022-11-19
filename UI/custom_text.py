@@ -15,8 +15,8 @@ class CustomText:
         pygame.font.init()
         self.font: pygame.font.Font = pygame.font.Font(font_family_path, settings.ady(font_size))
         self.surf: pygame.Surface = self.font.render(text, True, color)
-        self.rect: pygame.Rect = self.surf.get_rect(center=settings.ad(pos).get_tuple())
-        self.rect_size_vector = Vector(self.rect.size)
+        self.rect: pygame.Rect = self.surf.get_rect(center=settings.ad(pos).as_tuple())
+        self.rect_size_vector = Vector.from_tuple(self.rect.size)
         self.text = text
         self.pos = pos
         self.color = color

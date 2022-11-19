@@ -31,8 +31,8 @@ class Button(UIElement):
 
         # set up button in its initial state
         self.text = CustomText(text, pos, primary_color, font_size)
-        self.area = pygame.Surface((settings.ad(padding)*2 + self.text.rect_size_vector).get_tuple())
-        self.area_rect = self.area.get_rect(center=settings.ad(pos).get_tuple())
+        self.area = pygame.Surface((settings.ad(padding)*2 + self.text.rect_size_vector).as_tuple())
+        self.area_rect = self.area.get_rect(center=settings.ad(pos).as_tuple())
         self.primary_color = primary_color
         self.secondary_color = secondary_color
         self.call_back = callback
