@@ -25,9 +25,9 @@ from vector.vector import Vector
         when the button is not selected and the text color when the button is selected.
 """
 class Button(UIElement):
-    def __init__(self, text: str, pos: Vector, primary_color: tuple[int, int, int],
-    secondary_color: tuple[int, int, int], font_size: int, padding: Vector, callback: Callable[[None], None],
-    active=True, selected=False, submitted=False) -> None:
+    def __init__(self, text: str="Button", pos: Vector=Vector(settings.space // 2), primary_color: tuple[int, int, int]=color.BLACK,
+    secondary_color: tuple[int, int, int]=color.WHITE, font_size: int=60, padding: Vector=Vector(40, 40), callback:
+    Callable[[None], None]=lambda: None, active=True, selected=False, submitted=False) -> None:
 
         # set up button in its initial state
         self.text = CustomText(text, pos, primary_color, font_size)
