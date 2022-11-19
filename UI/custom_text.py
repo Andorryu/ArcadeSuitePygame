@@ -6,16 +6,17 @@
 import pygame
 import global_settings as settings
 from UI.UI_element import UIElement
-from vector import Vector
+from vector.vector import Vector
 
 class CustomText:
     def __init__(self, text: str, pos: Vector, color: tuple[int, int, int], 
     font_size: int, font_family_path: str=None) -> None:
 
         pygame.font.init()
-        self.font: pygame.font.Font = pygame.font.Font(font_family_path, font_size)
+        self.font: pygame.font.Font = pygame.font.Font(font_family_path, settings.ady(font_size))
         self.surf: pygame.Surface = self.font.render(text, True, color)
-        self.rect: pygame.Rect = self.surf.get_rect(center=pos.get_tuple())
+        self.rect: pygame.Rect = self.surf.get_rect(center=settings.ad(pos).get_tuple())
+        self.rect_size_vector = Vector(self.rect.size)
         self.text = text
         self.pos = pos
         self.color = color

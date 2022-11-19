@@ -10,7 +10,7 @@ import color
 from UI.UI_layer import UILayer
 from UI.button import Button
 from UI.custom_text import CustomText
-from vector import Vector
+from vector.vector import Vector
 import global_settings as settings
 
 class MainMenu(Menu):
@@ -18,20 +18,37 @@ class MainMenu(Menu):
         super().__init__()
         self.UI_layer = UILayer([
             CustomText(
-                "Welcome!",
-                (settings.resolution // 2 - settings.ad(Vector(0, 20))),
-                color.WHITE,
-                50
+                text = "Welcome!",
+                pos = (settings.space // 2 - Vector((0, 500))),
+                color = color.WHITE,
+                font_size = 140
+            ),
+            Button(
+                text = "Play!",
+                pos = (settings.space // 2 + Vector((0, 0))),
+                primary_color = color.BLACK,
+                secondary_color = color.WHITE,
+                font_size = 80,
+                padding = Vector((200, 50)),
+                callback = lambda: None
             ),
             Button(
                 text = "Settings",
-                pos = (settings.resolution // 2 + settings.ad(Vector(0, 20))),
+                pos = (settings.space // 2 + Vector((0, 200))),
                 primary_color = color.BLACK,
                 secondary_color = color.WHITE,
-                font_size = 24,
-                padding = (50, 20),
-                # callback must not contain arguments, thus it must be a lambda
+                font_size = 80,
+                padding = Vector((155, 50)),
                 callback = lambda: settings.change_state(Settings())
+            ),
+            Button(
+                text = "Exit",
+                pos = (settings.space // 2 + Vector((0, 400))),
+                primary_color = color.BLACK,
+                secondary_color = color.WHITE,
+                font_size = 80,
+                padding = Vector((214, 50)),
+                callback = lambda: settings.exit_program()
             )
         ])
 

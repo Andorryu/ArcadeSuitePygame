@@ -9,7 +9,7 @@ import color
 from UI.custom_text import CustomText
 from UI.UI_element import UIElement
 import global_settings as settings
-from vector import Vector
+from vector.vector import Vector
 
 """
     DESC:
@@ -26,13 +26,13 @@ from vector import Vector
 """
 class Button(UIElement):
     def __init__(self, text: str, pos: Vector, primary_color: tuple[int, int, int],
-    secondary_color: tuple[int, int, int], font_size: int, padding: tuple[int, int], callback: Callable[[None], None],
+    secondary_color: tuple[int, int, int], font_size: int, padding: Vector, callback: Callable[[None], None],
     active=True, selected=False, submitted=False) -> None:
 
         # set up button in its initial state
         self.text = CustomText(text, pos, primary_color, font_size)
-        self.area = pygame.Surface((2*padding[0] + self.text.rect.width, 2*padding[1] + self.text.rect.height))
-        self.area_rect = self.area.get_rect(center=pos.get_tuple())
+        self.area = pygame.Surface((settings.ad(padding)*2 + self.text.rect_size_vector).get_tuple())
+        self.area_rect = self.area.get_rect(center=settings.ad(pos).get_tuple())
         self.primary_color = primary_color
         self.secondary_color = secondary_color
         self.call_back = callback
