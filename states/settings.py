@@ -25,8 +25,8 @@ class Settings(Menu):
                 pos = (Vector(100, 100)),
                 placement_mode = "topleft",
                 font_size = 60,
-                callback = lambda: None
-            )
+                callback = lambda: settings.change_state(MainMenu())
+            ),
         ])
 
     def process_input(self, events) -> None:
@@ -40,3 +40,5 @@ class Settings(Menu):
     def render(self) -> None:
         super().render()
         self.UI_layer.render()
+
+from states.main_menu import MainMenu

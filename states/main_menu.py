@@ -5,13 +5,12 @@
 """
 
 from states.menu import Menu
-from states.settings import Settings
+import global_settings as settings
 import color
 from UI.UI_layer import UILayer
 from UI.button import Button
 from UI.custom_text import CustomText
 from vector.vector import Vector
-import global_settings as settings
 
 class MainMenu(Menu):
     def __init__(self) -> None:
@@ -54,4 +53,6 @@ class MainMenu(Menu):
     def render(self) -> None:
         super().render()
         self.UI_layer.render()
+        
+from states.settings import Settings
         
