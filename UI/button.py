@@ -25,14 +25,23 @@ from vector.vector import Vector
         when the button is not selected and the text color when the button is selected.
 """
 class Button(UIElement):
-    def __init__(self, text: str="Button", pos: Vector=Vector(settings.space // 2), primary_color: tuple[int, int, int]=color.BLACK,
-    secondary_color: tuple[int, int, int]=color.WHITE, font_size: int=60, padding: Vector=Vector(40, 40), callback:
-    Callable[[None], None]=lambda: None, active=True, selected=False, submitted=False) -> None:
+    def __init__(self, text: str="Button", pos: Vector=(settings.space // 2), placement_mode: str="center",
+    primary_color: tuple[int, int, int]=color.BLACK, secondary_color: tuple[int, int, int]=color.WHITE, font_size: int=80, 
+    padding: Vector=Vector(40, 40), callback: Callable[[None], None]=lambda: None, active=True, selected=False, submitted=False) -> None:
 
         # set up button in its initial state
-        self.text = CustomText(text, pos, primary_color, font_size)
+        self.text = CustomText(
+            text = text,
+            pos = pos + padding if placement_mode == "topleft" else pos,
+            placement_mode = placement_mode,
+            color = primary_color,
+            font_size = font_size
+        )
         self.area = pygame.Surface((settings.ad(padding)*2 + self.text.rect_size_vector).as_tuple())
-        self.area_rect = self.area.get_rect(center=settings.ad(pos).as_tuple())
+        if placement_mode == "center":
+            self.area_rect = self.area.get_rect(center=settings.ad(pos).as_tuple())
+        elif placement_mode == "topleft":
+            self.area_rect = self.area.get_rect(topleft=settings.ad(pos).as_tuple())
         self.primary_color = primary_color
         self.secondary_color = secondary_color
         self.call_back = callback

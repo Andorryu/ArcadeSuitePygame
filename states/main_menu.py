@@ -20,14 +20,11 @@ class MainMenu(Menu):
             CustomText(
                 text = "Welcome!",
                 pos = (settings.space // 2 - Vector(0, 500)),
-                color = color.WHITE,
                 font_size = 140
             ),
             Button(
                 text = "Play!",
                 pos = (settings.space // 2 + Vector(0, 0)),
-                primary_color = color.BLACK,
-                secondary_color = color.WHITE,
                 font_size = 80,
                 padding = Vector(200, 50),
                 callback = lambda: None
@@ -35,18 +32,12 @@ class MainMenu(Menu):
             Button(
                 text = "Settings",
                 pos = (settings.space // 2 + Vector(0, 200)),
-                primary_color = color.BLACK,
-                secondary_color = color.WHITE,
-                font_size = 80,
                 padding = Vector(155, 50),
                 callback = lambda: settings.change_state(Settings())
             ),
             Button(
                 text = "Exit",
                 pos = (settings.space // 2 + Vector(0, 400)),
-                primary_color = color.BLACK,
-                secondary_color = color.WHITE,
-                font_size = 80,
                 padding = Vector(214, 50),
                 callback = lambda: settings.exit_program()
             )

@@ -4,18 +4,23 @@
 """
 
 import pygame
+import color
 import global_settings as settings
 from UI.UI_element import UIElement
 from vector.vector import Vector
 
 class CustomText:
-    def __init__(self, text: str, pos: Vector, color: tuple[int, int, int], 
-    font_size: int, font_family_path: str=None) -> None:
+    def __init__(self, text: str="text", pos: Vector=settings.space // 2, placement_mode: str="center", color: tuple[int, int, int]=color.WHITE, 
+    font_size: int=80, font_family_path: str=None) -> None:
 
         pygame.font.init()
         self.font: pygame.font.Font = pygame.font.Font(font_family_path, settings.ady(font_size))
         self.surf: pygame.Surface = self.font.render(text, True, color)
-        self.rect: pygame.Rect = self.surf.get_rect(center=settings.ad(pos).as_tuple())
+        if placement_mode == "center":
+            self.rect: pygame.Rect = self.surf.get_rect(center=settings.ad(pos).as_tuple())
+        elif placement_mode == "topleft":
+            self.rect: pygame.Rect = self.surf.get_rect(topleft=settings.ad(pos).as_tuple())
+
         self.rect_size_vector = Vector.from_tuple(self.rect.size)
         self.text = text
         self.pos = pos

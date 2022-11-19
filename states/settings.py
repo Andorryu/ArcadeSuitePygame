@@ -22,14 +22,16 @@ class Settings(Menu):
             ),
             Button(
                 text = "Back",
-                pos = (Vector(200, 180)),
-                primary_color = color.BLACK,
-                secondary_color = color.WHITE,
+                pos = (Vector(100, 100)),
+                placement_mode = "topleft",
                 font_size = 60,
-                padding = Vector(40, 40),
                 callback = lambda: None
             )
         ])
+
+    def process_input(self, events) -> None:
+        super().process_input(events)
+        self.UI_layer.process_input(events)
     
     def update(self) -> None:
         super().update()
