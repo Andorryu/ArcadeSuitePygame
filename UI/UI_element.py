@@ -1,7 +1,7 @@
 
 class UIElement:
-    def __init__() -> None:
+    def __init__(self) -> None:
         pass
 
-    def render() -> None:
+    def render(self) -> None:
         pass

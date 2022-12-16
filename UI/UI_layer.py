@@ -10,6 +10,7 @@ import pygame
 from enum import Enum, auto
 from UI.UI_element import UIElement
 from UI.button import Button
+from UI.switch import Switch
 
 # enum to distinguish between keyboard and mouse input
 class InputType(Enum):
@@ -48,13 +49,18 @@ class UILayer:
     def handle_mouse_input_mode(self) -> None:
         element: UIElement
         for element in self.UI_elements:
-            if isinstance(element, Button):
+            if isinstance(element, Switch):
+                for button in element.buttons:
+                    self.handle_button(button)
+            elif isinstance(element, Button):
+                self.handle_button(element)
+
+    def handle_button(self, element):
                 # selection
-                if element.area_rect.collidepoint(self.mouse_pos):
+                if element.rect.collidepoint(self.mouse_pos):
                     element.selected = True
                 else:
                     element.selected = False
                 # submission
                 if element.selected and self.mouse_down:
                     element.call_back()
-

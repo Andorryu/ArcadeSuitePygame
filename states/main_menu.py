@@ -9,14 +9,14 @@ import global_settings as settings
 import color
 from UI.UI_layer import UILayer
 from UI.button import Button
-from UI.custom_text import CustomText
+from UI.custom_font import CustomFont
 from vector.vector import Vector
 
 class MainMenu(Menu):
     def __init__(self) -> None:
         super().__init__()
         self.UI_layer = UILayer([
-            CustomText(
+            CustomFont.as_text(
                 text = "Welcome!",
                 pos = (settings.space // 2 - Vector(0, 500)),
                 font_size = 140

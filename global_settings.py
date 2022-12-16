@@ -3,13 +3,23 @@ import pygame
 from vector.vector import Vector
 
 # ADAPTION FUNCTIONS
-# call these whenever the framework interacts with pygame
+# call these convert between space-based value and res-based value
+# FROM SPACE TO RES (i.e., converting vector values to pygame-usable values)
 def ad(vector: Vector) -> Vector:
     return vector * resolution // space
 def adx(x_val: int) -> int:
     return x_val * resolution.x // space.x
 def ady(y_val: int) -> int:
     return y_val * resolution.y // space.y
+
+# FROM RES TO SPACE (i.e., converting python usable values to space-based vector)
+def unad(vector: Vector) -> Vector:
+    return vector * space // resolution
+def unadx(x_val: int) -> int:
+    return x_val * space.x // resolution.x
+def unady(y_val: int) -> int:
+    return y_val * space.y // resolution.y
+
 # END ADAPTION FUNCTIONS
     
 # APP-WIDE SETTINGS

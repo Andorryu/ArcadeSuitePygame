@@ -5,8 +5,9 @@
 import color
 from states.menu import Menu
 from UI.UI_layer import UILayer
+from UI.switch import Switch
 from UI.button import Button
-from UI.custom_text import CustomText
+from UI.custom_font import CustomFont
 from vector.vector import Vector
 import global_settings as settings
 
@@ -14,7 +15,7 @@ class Settings(Menu):
     def __init__(self) -> None:
         super().__init__()
         self.UI_layer = UILayer([
-            CustomText(
+            CustomFont.as_text(
                 text = "Settings",
                 pos = (settings.space // 2 - Vector(0, 500)),
                 color = color.WHITE,
@@ -27,6 +28,7 @@ class Settings(Menu):
                 font_size = 60,
                 callback = lambda: settings.change_state(MainMenu())
             ),
+            Switch()
         ])
 
     def process_input(self, events) -> None:
