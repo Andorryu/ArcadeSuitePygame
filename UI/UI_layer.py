@@ -50,17 +50,41 @@ class UILayer:
         element: UIElement
         for element in self.UI_elements:
             if isinstance(element, Switch):
-                for button in element.buttons:
-                    self.handle_button(button)
+                self.handle_switch(element)
             elif isinstance(element, Button):
                 self.handle_button(element)
 
-    def handle_button(self, element):
+    def handle_button(self, button: Button):
                 # selection
-                if element.rect.collidepoint(self.mouse_pos):
-                    element.selected = True
-                else:
-                    element.selected = False
+                self.handle_sel(button)
                 # submission
-                if element.selected and self.mouse_down:
-                    element.call_back()
+                self.handle_sub(button)
+
+    def handle_switch(self, switch: Switch):
+        # first handle whether the individual buttons' are selected
+        for button in switch.buttons:
+            self.handle_sel(button)
+        # then handle switch selection
+        switch.selected = False
+        for button in switch.buttons:
+            if button.selected:
+                switch.selected = True
+        # if clicking switch
+        if switch.selected and self.mouse_down:
+            switch.unsubmit() # unsubmit all buttons in switch
+        # then do individual button submissions
+        for button in switch.buttons:
+            if not button.submitted:
+                self.handle_sub(button)
+    
+    def handle_sel(self, button: Button):
+        if button.rect.collidepoint(self.mouse_pos):
+            button.selected = True
+        else:
+            button.selected = False
+
+    def handle_sub(self, button: Button):
+        if button.selected and self.mouse_down:
+            button.submitted = True
+            print("Button submitted!")
+            button.call_back()

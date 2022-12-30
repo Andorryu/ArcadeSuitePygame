@@ -37,6 +37,7 @@ class Button(UIElement):
 
         # Step 2: Create background surface and rect (based on font width and height)
         self.surf = pygame.Surface(settings.ad(padding*2 + self.font.get_size_vector()).as_tuple())
+        print(f"padding: {padding.x}, font width: {self.font.get_size_vector().x}")
         if placement_mode == "center":
             self.rect = self.surf.get_rect(center=settings.ad(pos).as_tuple())
         elif placement_mode == "topleft":
@@ -64,8 +65,8 @@ class Button(UIElement):
     
     # render the button
     def render(self) -> None:
-        bg_color = self.primary_color if self.selected else self.secondary_color
-        text_color = self.secondary_color if self.selected else self.primary_color
+        bg_color = self.primary_color if self.selected or self.submitted else self.secondary_color
+        text_color = self.secondary_color if self.selected or self.submitted else self.primary_color
         # first, draw background rect
         settings.window.fill(bg_color, self.rect)
         # then, draw text

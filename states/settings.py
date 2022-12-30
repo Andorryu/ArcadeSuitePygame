@@ -28,7 +28,9 @@ class Settings(Menu):
                 font_size = 60,
                 callback = lambda: settings.change_state(MainMenu())
             ),
-            Switch()
+            Switch(
+                texts = ["2400x1350hkljljkbkjlbk", "1920x1080", "1280x720"]
+            )
         ])
 
     def process_input(self, events) -> None:
